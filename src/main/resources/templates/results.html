@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Results</h1>
+    <form action="/submit" method="post">
+        <div class="row" th:if="${ not#lists.isEmpty(prizes)}">
+            <div class="col-md-4 card-body" th:each="prize,i : ${prizes}">
+                <img th:src="@{images/magic-box.jpg}">
+                <p th:text="${prize.name}"></p>
+            </div>
+        </div>
+
+
+        <div th:if="${selectedPrize != null}" class="col-md-4 offset-md-4 card-body">
+            <p><b>The user selected:</b></p>
+            <img th:src="@{images/magic-box.jpg}">
+            <p th:text="${selectedPrize?.name}"></p>
+        </div>
+    </form>
+</body>
+<footer>
+    Student Name goes here
+</footer>
+</html>

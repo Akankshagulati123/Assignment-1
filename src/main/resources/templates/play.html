@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Play</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Choose a box</h1>
+    <form action="/submit" method="post">
+        <div class="row">
+            <div class="col-md-4 card-body" th:each="prize,i : ${prizes}">
+                <img th:src="@{images/magic-box.jpg}">
+                <!--            <p th:text=""></p>-->
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="prizeId" id="prizeId" th:value="${i.index}">
+                    <label class="form-check-label" for="prizeId" th:text="'Box ' + ${i.index + 1}"></label>
+                </div>
+            </div>
+        </div>
+        <div class="d-grid gap-2">
+            <button type="submit" class="btn btn-success mt-3">Play</button>
+        </div>
+    </form>
+</body>
+<footer>
+    Student Name goes here
+</footer>
+</html>
